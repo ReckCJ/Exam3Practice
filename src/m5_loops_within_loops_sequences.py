@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  LOOPS WITHIN LOOPS in SEQUENCES-OF-SUBSEQUENCES problems.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Cory Reck.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -38,7 +38,7 @@ def main():
 def run_test_integers():
     """ Tests the    integers    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  integers  function defined below.
     #   Include at least ** 1 ** ADDITIONAL test beyond those we wrote.
     #
@@ -68,6 +68,12 @@ def run_test_integers():
                        [[55], [44]],
                        [30, -4]
                        ])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
+    expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    answer = integers([[1, 'a', 1.1], [2, 'b', 2.2], [3, 4, 'cd', 33.44],
+                       [5, 6, 7, 8, 9, 10, 'efghij', 567.8910]])
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
@@ -118,6 +124,12 @@ def integers(sequence_of_sequences):
     #    DIFFICULTY:      6
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
+    integer_list = []
+    for k in range(len(sequence_of_sequences)):
+        for j in range(len(sequence_of_sequences[k])):
+            if type(sequence_of_sequences[k][j]) is int:
+                integer_list.append(sequence_of_sequences[k][j])
+    return integer_list
 
 
 def run_test_big_letters():
@@ -159,6 +171,14 @@ def run_test_big_letters():
     print('Expected is:', expected)
     print('Actual is:  ', answer)
 
+    expected = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    answer = big_letters([(1, 2, 'A', 'B'), 'AB Can Dis bE a string?',
+                          ['NOT A STRING'],
+                          'FGHI', 'Just Kidding LMao', '1 2 3 N O P',
+                          ['QRS'], 'QRS', 'TUVWXYZ'])
+    print('Expected is:', expected)
+    print('Actual is:  ', answer)
+
 
 def big_letters(sequence_of_sequences):
     """
@@ -189,7 +209,7 @@ def big_letters(sequence_of_sequences):
     Precondition:  the given argument is a sequence of sequences.
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     ####################################################################
@@ -211,6 +231,13 @@ def big_letters(sequence_of_sequences):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:  12 minutes.
     # ------------------------------------------------------------------
+    new_string = ''
+    for k in range(len(sequence_of_sequences)):
+        if type(sequence_of_sequences[k]) is str:
+            for j in range(len(sequence_of_sequences[k])):
+                if (sequence_of_sequences[k][j] in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+                    new_string = new_string + sequence_of_sequences[k][j]
+    return new_string
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

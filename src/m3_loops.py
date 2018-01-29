@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  FOR and WHILE loops.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Cory Reck.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -134,6 +134,15 @@ def run_test_practice_problem3():
     # SUGGESTION: Ask an assistant to CHECK your tests to confirm
     #             that they are adequate tests!
     ####################################################################
+    expected = [0, 1, 2, 6, 7]
+    actual = practice_problem3(0, 5, 0)
+    print('User Test 1 expected: ', expected)
+    print('User Test 1 actual: ', actual)
+
+    expected = [-5, 1, 7, 13, 14, 19, 20, 26, 32, 38]
+    actual = practice_problem3(-5, 10, 1)
+    print('User Test 2 expected: ', expected)
+    print('User Test 2 actual: ', actual)
 
 
 def practice_problem3(start, n, threshold):
@@ -216,6 +225,17 @@ def practice_problem3(start, n, threshold):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   < 15 minutes.
     ####################################################################
+    new_list = []
+    test_integer = start
+    if n is not 0:
+        while len(new_list) < n:
+            if (math.sin(test_integer) + math.cos(test_integer)) > threshold:
+                new_list = new_list + [test_integer]
+            test_integer = test_integer + 1
+    if threshold > math.sqrt(2):
+        for k in range(n):
+            new_list = new_list + [start + k]
+    return new_list
 
 
 # ----------------------------------------------------------------------
